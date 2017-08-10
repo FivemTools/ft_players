@@ -7,6 +7,7 @@
 
 client_scripts {
 
+  "settings.lua",
   -- "client/cl_player.lua",
   -- "client/cl_playerEvents.lua",
   "client/cl_init.lua",
@@ -16,6 +17,8 @@ client_scripts {
 server_scripts {
 
   "@mysql-async/lib/MySQL.lua",
+
+  "settings.lua",
   -- "server/sv_player.lua",
   -- "server/sv_players.lua",
   "server/sv_init.lua",
