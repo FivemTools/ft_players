@@ -1,99 +1,102 @@
+--
 -- @Project: FiveM Tools
+-- @Author: Samuelds
 -- @License: GNU General Public License v3.0
 -- @Source: https://github.com/FivemTools/ft_players
+--
 
 -- Constructor
-function Player (steamId, source)
+-- function Player (steamId, source)
 
-  local self = {}
-  self.source = source
-  self.steamId = steamId
-  self.data = {}
+--   local self = {}
+--   self.source = source
+--   self.steamId = steamId
+--   self.data = {}
 
-  self.GetDatas = function()
+--   self.GetDatas = function()
 
-    return self.data
+--     return self.data
 
-  end
+--   end
 
-  self.Get = function(name)
+--   self.Get = function(name)
 
-    return self.data[name]
+--     return self.data[name]
 
-  end
+--   end
 
-  self.Set = function(data)
+--   self.Set = function(data)
 
-    for name, value in pairs(data) do
-      self.data[name] = value
-    end
-    self.Save(data)
+--     for name, value in pairs(data) do
+--       self.data[name] = value
+--     end
+--     self.Save(data)
 
-  end
+--   end
 
-  self.SelectPlayerInDB = function()
+--   self.SelectPlayerInDB = function()
 
-    local steamId = self.steamId
-    local result = MySQL.Sync.fetchAll("SELECT * FROM players WHERE steamId = @steamId", { ['@steamId'] = self.steamId } )
-    return result[1]
+--     local steamId = self.steamId
+--     local result = MySQL.Sync.fetchAll("SELECT * FROM players WHERE steamId = @steamId", { ['@steamId'] = self.steamId } )
+--     return result[1]
 
-  end
+--   end
 
-  self.CreatePlayerInDB = function()
+--   self.CreatePlayerInDB = function()
 
-    local date = os.date("%Y-%m-%d %X")
-    local result = MySQL.Sync.execute("INSERT INTO players (`steamId`, `createdAt`) VALUES (@steamId, @date)", { ['@steamId'] = self.steamId, ['@date'] = date } )
-    return result
+--     local date = os.date("%Y-%m-%d %X")
+--     local result = MySQL.Sync.execute("INSERT INTO players (`steamId`, `createdAt`) VALUES (@steamId, @date)", { ['@steamId'] = self.steamId, ['@date'] = date } )
+--     return result
 
-  end
+--   end
 
-  self.Init = function()
+--   self.Init = function()
 
-    local player = self.SelectPlayerInDB()
+--     local player = self.SelectPlayerInDB()
 
-    if player == nil then
+--     if player == nil then
 
-      print("[Info] Player not exit in database")
+--       print("[Info] Player not exit in database")
 
-      local insertPlayer = self.CreatePlayerInDB()
-      if insertPlayer then
-        player = self.SelectPlayerInDB()
-      else
-        print("[ERROR] Insertion failed for steamId : " .. steamId)
-      end
-    end
+--       local insertPlayer = self.CreatePlayerInDB()
+--       if insertPlayer then
+--         player = self.SelectPlayerInDB()
+--       else
+--         print("[ERROR] Insertion failed for steamId : " .. steamId)
+--       end
+--     end
 
-    self.data = player
+--     self.data = player
 
-  end
+--   end
 
-  self.Save = function(data)
+--   self.Save = function(data)
 
-    data = data or self.data
-    local str_query = ""
-    local count = 0
+--     data = data or self.data
+--     local str_query = ""
+--     local count = 0
 
-    for column, value in pairs(data) do
-      if column ~= "id" and column ~= "steamId" and column ~= "createdAt" and column ~= "source" then
-        if count ~= 0 then
-          str_query = str_query .. ", "
-        end
+--     for column, value in pairs(data) do
+--       if column ~= "id" and column ~= "steamId" and column ~= "createdAt" and column ~= "source" then
+--         if count ~= 0 then
+--           str_query = str_query .. ", "
+--         end
 
-        str_query = str_query .. tostring(column) .. " = " .. tostring(value)
-        count = count + 1
-      end
-    end
+--         str_query = str_query .. tostring(column) .. " = " .. tostring(value)
+--         count = count + 1
+--       end
+--     end
 
-    MySQL.Sync.execute("UPDATE players SET " .. str_query .. " WHERE steamId = @steamId", { ['@steamId'] = self.steamId } )
+--     MySQL.Sync.execute("UPDATE players SET " .. str_query .. " WHERE steamId = @steamId", { ['@steamId'] = self.steamId } )
 
-  end
+--   end
 
-  self.Kick = function(reason)
+--   self.Kick = function(reason)
 
-    DropPlayer(self.source, reason)
+--     DropPlayer(self.source, reason)
 
-  end
+--   end
 
-  return self
+--   return self
 
-end
+-- end
