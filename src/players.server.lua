@@ -5,8 +5,26 @@
 -- @Source: https://github.com/FivemTools/ft_players
 --
 
--- Players = {}
--- TmpPlayers = {}
+Players = {}
+TmpPlayers = {}
+
+
+-- 
+AddEventHandler("playerConnecting", function(playerName, setCallback)
+
+  local steamId = getSteamId(source)
+
+  -- Check if player is in player table
+  local checkAccess = PlayerIsAllowed(steamId)
+  if type(checkAccess) == "string" then
+    setCallback(checkAccess .. " (steamId: " .. steamId .. ")")
+    CancelEvent()
+    return
+  else
+    TriggerEvent('ft_gamemode:ClFirstJoinProper')
+  end
+
+end)
 
 -- -- Get All players
 -- function GetPlayers()

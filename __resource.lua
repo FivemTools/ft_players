@@ -5,23 +5,33 @@
 -- @Source: https://github.com/FivemTools/ft_players
 --
 
+dependencies {
+  "mysql-async",
+  "ft_utils",
+}
+
 client_scripts {
 
+  -- Require  
+  "@ft_utils/utils.lua", -- Utils
+
   "settings.lua",
-  -- "client/cl_player.lua",
-  -- "client/cl_playerEvents.lua",
-  "client/cl_init.lua",
+  -- "src/player.client.lua",
+  -- "src/playerEvents.client.lua",
+  "src/init.client.lua",
 
 }
 
 server_scripts {
 
-  "@mysql-async/lib/MySQL.lua",
+  -- Require
+  "@mysql-async/lib/MySQL.lua", -- Mysql
+  "@ft_utils/utils.lua", -- Utils
 
   "settings.lua",
-  -- "server/sv_player.lua",
-  -- "server/sv_players.lua",
-  "server/sv_init.lua",
+  -- "src/sv_player.server.lua",
+  -- "src/sv_players.server.lua",
+  "src/init.server.lua",
 
 }
 
