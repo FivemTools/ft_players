@@ -12,12 +12,9 @@ dependencies {
 
 client_scripts {
 
-  -- Require  
+  -- Require
   "@ft_utils/utils.lua", -- Utils
 
-  "settings.lua",
-  -- "src/player.client.lua",
-  -- "src/playerEvents.client.lua",
   "src/init.client.lua",
 
 }
@@ -28,24 +25,11 @@ server_scripts {
   "@mysql-async/lib/MySQL.lua", -- Mysql
   "@ft_utils/utils.lua", -- Utils
 
-  "settings.lua",
-  -- "src/sv_player.server.lua",
-  -- "src/sv_players.server.lua",
+  "version.lua",
   "src/init.server.lua",
 
 }
 
-exports {
+exports {}
 
-  -- "SetPlayerData",
-  -- "GetPlayerData",
-
-}
-
-server_exports {
-
-  -- "GetPlayers",
-  -- "GetPlayer",
-  -- "PlayerExist",
-
-}
+server_exports {}
