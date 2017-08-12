@@ -15,6 +15,7 @@ client_scripts {
   -- Require
   "@ft_utils/utils.lua", -- Utils
 
+  "src/player.client.lua",
   "src/init.client.lua",
 
 }
@@ -33,7 +34,11 @@ server_scripts {
 
 }
 
-exports {}
+exports {
+  "GetPlayer",
+  "Get",
+  "Set",
+}
 
 server_exports {
   "GetPlayers",
