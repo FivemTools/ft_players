@@ -23,7 +23,17 @@ function AddPlayer(source, player)
   Player[source] = player
 end
 
--- Kick player
-function KickPlayer(source, reason)
-  DropPlayer(source, reason)
+-- Remove Player in player list
+function RemovePlayer(source)
+  Player[source] = nil
+end
+
+-- Get all player
+function GetPlayers()
+  return Player
+end
+
+-- Get player by source
+function GetPlayer(source)
+  return Player[source]
 end

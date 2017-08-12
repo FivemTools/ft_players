@@ -56,14 +56,14 @@ function Player:Set(...)
   if #arg == 1 and type(arg[1]) == "table" then
 
   for name, value in pairs(data) do
-    self.data[name] = value
+    self[name] = value
   end
 
   elseif #arg == 2 then
 
     local name = arg[1]
     local value = arg[2]
-    self.data[name] = value
+    self[name] = value
 
   end
 
@@ -90,6 +90,10 @@ function Player:Save(data)
 
   MySQL.Sync.execute("UPDATE players SET " .. str_query .. " WHERE steamId = @steamId", { ['@steamId'] = self.steamId } )
 
+end
+
+function Player:Kick(reason)
+  DropPlayer(self.source, reason)
 end
 
 --
