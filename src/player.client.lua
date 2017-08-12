@@ -5,33 +5,34 @@
 -- @Source: https://github.com/FivemTools/ft_players
 --
 
--- Set player data
--- RegisterNetEvent('ft_gamemode:ClSetPlayerData')
--- AddEventHandler('ft_gamemode:ClSetPlayerData', function(data)
+Player = {}
 
---   if type(data) == "table" then
---     for name, value in pairs( data ) do
---       Player[name] = value
---     end
---   end
+function GetPlayer()
+  return Player
+end
 
--- end)
+-- Get value by key
+function Get(name)
+  return Player[name]
+end
 
--- -- Get all data in player client
--- function GetPlayerData(name)
+-- Set value
+function Set(..)
 
---   if name ~= nil then
---     return Player[name]
---   else
---     return Player
---   end
+  local arg = {...}
 
--- end
+  if #arg == 1 and type(arg[1]) == "table" then
 
--- -- Set data in player client
--- function SetPlayerData(name, value)
+  for name, value in pairs(data) do
+    Player[name] = value
+  end
 
---   Player[name] = value
+  elseif #arg == 2 then
 
--- end
+    local name = arg[1]
+    local value = arg[2]
+    Player[name] = value
 
+  end
+
+end
