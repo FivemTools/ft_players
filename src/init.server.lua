@@ -29,3 +29,12 @@ AddEventHandler('ft_players:onClientReady', function()
   TriggerEvent("ft_players:playerReadyToJoin")
 
 end)
+
+-- Event before player leave
+AddEventHandler('playerDropped', function()
+
+  if PlayerExist(source) then
+    RemovePlayer(source)
+  end
+
+end)
