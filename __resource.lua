@@ -35,4 +35,7 @@ server_scripts {
 
 exports {}
 
-server_exports {}
+server_exports {
+  "GetPlayers",
+  "GetPlayer",
+}
