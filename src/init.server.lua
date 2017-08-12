@@ -21,6 +21,7 @@ AddEventHandler('ft_players:onClientReady', function()
   if not PlayerExist(source) then
 
     local player = Player.new({ steamId = steamId, source = source })
+    AddPlayer(source, player)
 
   end
 
