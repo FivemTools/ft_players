@@ -14,7 +14,6 @@ Player = {}
 -- Select player in database
 function Player:SelectPlayerInDB()
 
-  local steamId = self.steamId
   local result = MySQL.Sync.fetchAll("SELECT * FROM players WHERE steamId = @steamId", { ['@steamId'] = self.steamId } )
   return result[1]
 
