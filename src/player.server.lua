@@ -5,98 +5,104 @@
 -- @Source: https://github.com/FivemTools/ft_players
 --
 
--- Constructor
--- function Player (steamId, source)
+Player = {}
 
---   local self = {}
---   self.source = source
---   self.steamId = steamId
---   self.data = {}
+--
+-- Class
+--
 
---   self.GetDatas = function()
+-- Select player in database
+function Player:SelectPlayerInDB()
 
---     return self.data
+  local steamId = self.steamId
+  local result = MySQL.Sync.fetchAll("SELECT * FROM players WHERE steamId = @steamId", { ['@steamId'] = self.steamId } )
+  return result[1]
 
---   end
+ end
 
---   self.Get = function(name)
+-- Create player in database
+function Player:CreatePlayerInDB()
 
---     return self.data[name]
+  local date = os.date("%Y-%m-%d %X")
+  local result = MySQL.Sync.execute("INSERT INTO players (`steamId`, `createdAt`) VALUES (@steamId, @date)", { ['@steamId'] = self.steamId, ['@date'] = date } )
+  return result
 
---   end
+end
 
---   self.Set = function(data)
+-- Get or create player data
+function Player:Init()
 
---     for name, value in pairs(data) do
---       self.data[name] = value
---     end
---     self.Save(data)
+  local player = self:SelectPlayerInDB()
 
---   end
+  if player == nil then
 
---   self.SelectPlayerInDB = function()
+    local insertPlayer = self:CreatePlayerInDB()
+    if insertPlayer then
+      player = self:SelectPlayerInDB()
+    else
+      print("[ft_players] Insertion failed for steamId : " .. steamId)
+    end
+  end
 
---     local steamId = self.steamId
---     local result = MySQL.Sync.fetchAll("SELECT * FROM players WHERE steamId = @steamId", { ['@steamId'] = self.steamId } )
---     return result[1]
+  for name, value in pairs(player) do
+    self[name] = value
+  end
 
---   end
+end
 
---   self.CreatePlayerInDB = function()
+function Player:Set(...)
 
---     local date = os.date("%Y-%m-%d %X")
---     local result = MySQL.Sync.execute("INSERT INTO players (`steamId`, `createdAt`) VALUES (@steamId, @date)", { ['@steamId'] = self.steamId, ['@date'] = date } )
---     return result
+  local arg = {...}
 
---   end
+  if #arg == 1 and type(arg[1]) == "table" then
 
---   self.Init = function()
+  for name, value in pairs(data) do
+    self.data[name] = value
+  end
 
---     local player = self.SelectPlayerInDB()
+  elseif #arg == 2 then
 
---     if player == nil then
+    local name = arg[1]
+    local value = arg[2]
+    self.data[name] = value
 
---       print("[Info] Player not exit in database")
+  end
 
---       local insertPlayer = self.CreatePlayerInDB()
---       if insertPlayer then
---         player = self.SelectPlayerInDB()
---       else
---         print("[ERROR] Insertion failed for steamId : " .. steamId)
---       end
---     end
+end
 
---     self.data = player
+function Player:Save(data)
 
---   end
+  data = data or self.data
 
---   self.Save = function(data)
+  local str_query = ""
+  local count = 0
 
---     data = data or self.data
---     local str_query = ""
---     local count = 0
+  for column, value in pairs(data) do
+    if column ~= "id" and column ~= "steamId" and column ~= "createdAt" and column ~= "source" then
 
---     for column, value in pairs(data) do
---       if column ~= "id" and column ~= "steamId" and column ~= "createdAt" and column ~= "source" then
---         if count ~= 0 then
---           str_query = str_query .. ", "
---         end
+      if count ~= 0 then
+        str_query = str_query .. ", "
+      end
 
---         str_query = str_query .. tostring(column) .. " = " .. tostring(value)
---         count = count + 1
---       end
---     end
+      str_query = str_query .. tostring(column) .. " = " .. tostring(value)
+      count = count + 1
+    end
+  end
 
---     MySQL.Sync.execute("UPDATE players SET " .. str_query .. " WHERE steamId = @steamId", { ['@steamId'] = self.steamId } )
+  MySQL.Sync.execute("UPDATE players SET " .. str_query .. " WHERE steamId = @steamId", { ['@steamId'] = self.steamId } )
 
---   end
+end
 
---   self.Kick = function(reason)
+--
+-- Static
+--
 
---     DropPlayer(self.source, reason)
+-- Create instance of player
+function Player.new(data)
 
---   end
+  local player = setmetatable(data, { __index = Player })
+  player:Init()
 
---   return self
+  return player
 
--- end
+end

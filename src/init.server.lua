@@ -15,23 +15,16 @@ end)
 RegisterServerEvent("ft_players:onClientReady")
 AddEventHandler('ft_players:onClientReady', function()
 
-  -- local steamId = getSteamId(source)
+  local steamId = getSteamId(source)
 
   -- Add player in player table
-  -- if not PlayerExist(source) then
-  --   AddPlayer(steamId, source)
-  -- end
+  if not PlayerExist(source) then
 
-  -- Send to player
-  -- local player = GetPlayer(source)
-  -- playerData = player.data
-  -- playerData.steamId = nil
-  -- playerData.createdAt = nil
-  -- playerData.ban = nil
-  -- playerData.whitelist = nil
-  -- playerData.source = player.source
+    local player = Player.new({ steamId = steamId, source = source })
 
-  -- Send ft_players:playerReadyToJoin event
+  end
+
+  -- Send playerReadyToJoin event
   TriggerClientEvent("ft_players:playerReadyToJoin", source)
   TriggerEvent("ft_players:playerReadyToJoin")
 

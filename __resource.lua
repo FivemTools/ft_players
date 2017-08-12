@@ -26,6 +26,9 @@ server_scripts {
   "@ft_utils/utils.lua", -- Utils
 
   "version.lua",
+
+  "src/player.server.lua",
+  "src/players.server.lua",
   "src/init.server.lua",
 
 }
