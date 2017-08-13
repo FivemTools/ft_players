@@ -101,7 +101,7 @@ function Player:Save(data)
 end
 
 function Player:Kick(reason)
-  DropPlayer(self.id, reason)
+  DropPlayer(self.source, reason)
 end
 
 --

@@ -9,8 +9,8 @@ function GetPlayers()
   return exports.ft_players:GetPlayer()
 end
 
-function GetPlayerFormId(id)
-  return exports.ft_players:GetPlayerFormId(id)
+function GetPlayerFormSource(source)
+  return exports.ft_players:GetPlayerFormSource(source)
 end
 
 function GetPlayerFormSteamId(steamId)

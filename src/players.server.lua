@@ -10,8 +10,7 @@ Players = {}
 -- Check if is in the list player
 function PlayerExist(source)
 
-  local id = source
-  if (Players[id] == nil) then
+  if (Players[source] == nil) then
     return false
   else
     return true
@@ -20,13 +19,13 @@ function PlayerExist(source)
 end
 
 -- Add Player in player list
-function AddPlayer(id, player)
-  Player[id] = player
+function AddPlayer(source, player)
+  Player[source] = player
 end
 
 -- Remove Player in player list
-function RemovePlayer(id)
-  Player[id] = nil
+function RemovePlayer(source)
+  Player[source] = nil
 end
 
 -- Get all player
@@ -40,7 +39,7 @@ function GetPlayerFormSteamId(steamId)
   return player
 end
 
--- Get player by id (source)
-function GetPlayerFormId(id)
-  return Player[id]
+-- Get player by source
+function GetPlayerFormSource(source)
+  return Player[source]
 end
