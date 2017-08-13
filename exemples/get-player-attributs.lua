@@ -30,7 +30,7 @@ local attributs = exports.ft_players:GetPlayer({ "steamId", "id" }) -- Get steam
 -- Wrappers version
 local players = GetPlayers() -- Get all player in server
 
-local player = GetPlayerFormId(1) -- Get player is source 1
+local player = GetPlayerFormId(1) -- Get player form id
 local steamId = player.steamId -- Get steamId
 
 local player = GetPlayerFormSteamId("steam:1100001xxxxxxxx") -- Get player form steamId
