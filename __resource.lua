@@ -36,8 +36,7 @@ server_scripts {
 
 exports {
   "GetPlayer",
-  "Get",
-  "Set",
+  "SetPlayer",
 }
 
 server_exports {
