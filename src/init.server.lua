@@ -26,7 +26,7 @@ AddEventHandler('ft_players:onClientReady', function()
   end
 
   -- Send playerReadyToJoin event
-  TriggerClientEvent("ft_players:playerReadyToJoin", id)
+  TriggerClientEvent("ft_players:playerReadyToJoin", source)
   TriggerEvent("ft_players:playerReadyToJoin")
 
 end)
