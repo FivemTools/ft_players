@@ -7,7 +7,7 @@
 
 Player = {}
 
-function GetPlayer(..)
+function GetPlayer(...)
 
   local arg = {...}
 
@@ -17,6 +17,7 @@ function GetPlayer(..)
     for _, name in pairs(arg[1]) do
       table[name] = Player[name]
     end
+    return table
 
   elseif #arg == 1 then
 
@@ -28,7 +29,7 @@ function GetPlayer(..)
 end
 
 -- Set value
-function SetPlayer(..)
+function SetPlayer(...)
 
   local arg = {...}
 
