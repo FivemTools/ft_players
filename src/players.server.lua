@@ -10,7 +10,7 @@ Players = {}
 -- Check if is in the list player
 function PlayerExist(source)
 
-  if (Players[source] == nil) then
+  if (type(Players[source]) == "nil") then
     return false
   else
     return true
@@ -30,7 +30,7 @@ end
 
 -- Get all player
 function GetPlayers()
-  return Player
+  return Players
 end
 
 -- Get player by steamId

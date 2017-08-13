@@ -33,7 +33,7 @@ function Player:Init()
 
   local player = self:SelectPlayerInDB()
 
-  if player == nil then
+  if type(player) == "nil" then
 
     local insertPlayer = self:CreatePlayerInDB()
     if insertPlayer then
