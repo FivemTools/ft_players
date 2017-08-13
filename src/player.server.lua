@@ -43,8 +43,12 @@ function Player:Init()
     end
   end
 
-  for name, value in pairs(player) do
-    self[name] = value
+  for column, value in pairs(player) do
+
+    if column ~= "id" and column ~= "steamId" and column ~= "id" then
+      self[column] = value
+    end
+
   end
 
 end
@@ -77,7 +81,7 @@ function Player:Save(data)
   local count = 0
 
   for column, value in pairs(data) do
-    if column ~= "id" and column ~= "steamId" and column ~= "createdAt" and column ~= "source" then
+    if column ~= "id" and column ~= "steamId" and column ~= "createdAt" and column ~= "id" then
 
       if count ~= 0 then
         str_query = str_query .. ", "
@@ -93,7 +97,7 @@ function Player:Save(data)
 end
 
 function Player:Kick(reason)
-  DropPlayer(self.source, reason)
+  DropPlayer(self.id, reason)
 end
 
 --

@@ -15,18 +15,19 @@ end)
 RegisterServerEvent("ft_players:onClientReady")
 AddEventHandler('ft_players:onClientReady', function()
 
-  local steamId = getSteamId(source)
+  local id = source
+  local steamId = getSteamId(id)
 
   -- Add player in player table
-  if not PlayerExist(source) then
+  if not PlayerExist(id) then
 
-    local player = Player.new({ steamId = steamId, source = source })
-    AddPlayer(source, player)
+    local player = Player.new({ steamId = steamId, id = id })
+    AddPlayer(id, player)
 
   end
 
   -- Send playerReadyToJoin event
-  TriggerClientEvent("ft_players:playerReadyToJoin", source)
+  TriggerClientEvent("ft_players:playerReadyToJoin", id)
   TriggerEvent("ft_players:playerReadyToJoin")
 
 end)
@@ -34,8 +35,9 @@ end)
 -- Event before player leave
 AddEventHandler('playerDropped', function()
 
-  if PlayerExist(source) then
-    RemovePlayer(source)
+  local id = source
+  if PlayerExist(id) then
+    RemovePlayer(id)
   end
 
 end)
