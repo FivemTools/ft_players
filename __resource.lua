@@ -41,5 +41,6 @@ exports {
 
 server_exports {
   "GetPlayers",
-  "GetPlayer",
+  "GetPlayerFormSteamId",
+  "GetPlayerFormId",
 }
