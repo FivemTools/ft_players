@@ -45,7 +45,7 @@ function Player:Init()
 
   for column, value in pairs(player) do
 
-    if column ~= "id" and column ~= "steamId" and column ~= "id" then
+    if self[column] == nil then
       self[column] = value
     end
 
