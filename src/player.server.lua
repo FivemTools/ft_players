@@ -17,7 +17,7 @@ function Player:SelectPlayerInDB()
   local result = MySQL.Sync.fetchAll("SELECT * FROM players WHERE steamId = @steamId", { ['@steamId'] = self.steamId } )
   return result[1]
 
- end
+end
 
 -- Create player in database
 function Player:CreatePlayerInDB()
@@ -59,9 +59,13 @@ function Player:Set(...)
 
   if #arg == 1 and type(arg[1]) == "table" then
 
-  for name, value in pairs(data) do
-    self[name] = value
-  end
+    for _, data in ipairs(arg[1]) do
+
+      local name = data[1]
+      local value = data[2]
+      self[name] = value
+
+    end
 
   elseif #arg == 2 then
 
@@ -75,7 +79,7 @@ end
 
 function Player:Save(data)
 
-  data = data or self.data
+  data = data or self
 
   local str_query = ""
   local count = 0
