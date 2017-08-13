@@ -20,12 +20,12 @@ end
 
 -- Add Player in player list
 function AddPlayer(source, player)
-  Player[source] = player
+  Players[source] = player
 end
 
 -- Remove Player in player list
 function RemovePlayer(source)
-  Player[source] = nil
+  Players[source] = nil
 end
 
 -- Get all player
@@ -41,5 +41,5 @@ end
 
 -- Get player by source
 function GetPlayerFormSource(source)
-  return Player[source]
+  return Players[source]
 end
