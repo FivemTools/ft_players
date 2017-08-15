@@ -6,7 +6,5 @@
 --
 
 Settings = {
-
-	debug = GetConvar('ft_debug', false),
-
+	debug = false,
 }
