@@ -52,10 +52,28 @@ end
 -- Events
 --
 
+-- Set player data
 RegisterServerEvent('ft_players:SetPlayer')
 AddEventHandler('ft_players:SetPlayer', function(...)
 
   local player = Players[source]
   player:Set(...)
+
+end)
+
+-- Set player data
+RegisterServerEvent('ft_players:PlayerUpdated')
+AddEventHandler('ft_players:PlayerUpdated', function(data)
+
+  local change = {}
+  local player = Players[source]
+
+  for name, value in pairs(data) do
+    if player[name] ~= value then
+      change[name] = value
+    end
+  end
+
+  tprint(change)
 
 end)

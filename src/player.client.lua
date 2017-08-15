@@ -46,9 +46,6 @@ function SetPlayer(...)
       data[name] = value
     end
 
-    -- Send to client
-    TriggerServerEvent("ft_players:SetPlayer", data)
-
   elseif #arg == 2 then
 
     local name = arg[1]
@@ -56,11 +53,13 @@ function SetPlayer(...)
     Player[name] = value
     data[name] = value
 
-    -- Send to client
-    TriggerServerEvent("ft_players:SetPlayer", data)
-
   end
 
+end
+
+-- Send to client
+function PlayerUpdated()
+  TriggerServerEvent("ft_players:PlayerUpdated", Player)
 end
 
 --
@@ -71,4 +70,5 @@ end
 RegisterNetEvent("ft_players:SetPlayer")
 AddEventHandler("ft_players:SetPlayer", function(...)
   SetPlayer(...)
+  tprint(...)
 end)

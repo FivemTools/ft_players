@@ -5,6 +5,7 @@
 -- @Source: https://github.com/FivemTools/ft_players
 --
 
+-- Client is 100% loaded games
 Citizen.CreateThread(function()
   while true do
     Citizen.Wait(0)
@@ -18,4 +19,10 @@ Citizen.CreateThread(function()
     end
 
   end
+end)
+
+-- Debug
+RegisterNetEvent("ft_players:Debug")
+AddEventHandler("ft_players:Debug", function()
+  Settings.debug = true
 end)

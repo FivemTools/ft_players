@@ -8,7 +8,13 @@
 -- Event is emited after resource is loded
 AddEventHandler('onServerResourceStart', function (resource)
     if resource == "ft_players" then
+
+        -- Convar
+        Settings.debug = GetConvar("ft_player_debug", "true") == "true" and true or false
+
+        -- Send event
         TriggerEvent('ft_players:onResourceReady')
+
     end
 end)
 
@@ -16,32 +22,40 @@ end)
 RegisterServerEvent("ft_players:onClientReady")
 AddEventHandler('ft_players:onClientReady', function()
 
-  local serverId = source
-  local steamId = getSteamId(serverId)
+  local source = source
+  local steamId = getSteamId(source)
+  local player = {}
 
   -- Add player in player table
-  if not PlayerExist(id) then
-    local player = Player.new({ steamId = steamId, source = serverId })
-    AddPlayer(serverId, player)
+  if not PlayerExist(serverId) then
+    player = Player.new({ steamId = steamId, source = source })
+    AddPlayer(source, player)
   else
-    local player = Players[source]
+    player = Players[source]
+  end
+
+  if Settings.debug then
+    print("-----=====[ DEBUG ]=====-----")
+    print("[player] data in database")
+    tprint(player)
+    print("-----------------------------")
   end
 
   -- Send to client
   TriggerClientEvent("ft_players:SetPlayer", source, player)
 
   -- Send playerReadyToJoin event
-  TriggerClientEvent("ft_players:playerReadyToJoin", serverId)
-  TriggerEvent("ft_players:playerReadyToJoin", serverId)
+  TriggerClientEvent("ft_players:playerReadyToJoin", source)
+  TriggerEvent("ft_players:playerReadyToJoin", source)
 
 end)
 
 -- Event before player leave
 AddEventHandler('playerDropped', function()
 
-  local serverId = source
-  if PlayerExist(serverId) then
-    RemovePlayer(serverId)
+  local source = source
+  if PlayerExist(source) then
+    RemovePlayer(source)
   end
 
 end)
