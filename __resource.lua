@@ -15,6 +15,8 @@ client_scripts {
   -- Require
   "@ft_utils/utils.lua", -- Utils
 
+  "settings.client.lua",
+
   "src/player.client.lua",
   "src/init.client.lua",
 
@@ -27,6 +29,7 @@ server_scripts {
   "@ft_utils/utils.lua", -- Utils
 
   "version.lua",
+  "settings.server.lua",
 
   "src/player.server.lua",
   "src/players.server.lua",
