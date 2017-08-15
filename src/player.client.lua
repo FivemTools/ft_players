@@ -7,6 +7,11 @@
 
 Player = {}
 
+--
+-- Functions
+--
+
+-- Get player atributs
 function GetPlayer(...)
 
   local arg = {...}
@@ -28,23 +33,42 @@ function GetPlayer(...)
 
 end
 
--- Set value
+-- Set player atributs
 function SetPlayer(...)
 
   local arg = {...}
+  local data = {}
 
   if #arg == 1 and type(arg[1]) == "table" then
 
     for name, value in pairs(arg[1]) do
       Player[name] = value
+      data[name] = value
     end
+
+    -- Send to client
+    TriggerServerEvent("ft_players:SetPlayer", data)
 
   elseif #arg == 2 then
 
     local name = arg[1]
     local value = arg[2]
     Player[name] = value
+    data[name] = value
+
+    -- Send to client
+    TriggerServerEvent("ft_players:SetPlayer", data)
 
   end
 
 end
+
+--
+-- Events
+--
+
+-- Set player atributs
+RegisterNetEvent("ft_players:SetPlayer")
+AddEventHandler("ft_players:SetPlayer", function(...)
+  SetPlayer(...)
+end)

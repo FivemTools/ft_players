@@ -28,7 +28,7 @@ function Player:CreatePlayerInDB()
 
 end
 
--- Get or create player data
+-- Get or create player
 function Player:Init()
 
   local player = self:SelectPlayerInDB()
@@ -53,25 +53,34 @@ function Player:Init()
 
 end
 
+-- Set player atributs
 function Player:Set(...)
 
   local arg = {...}
 
   if #arg == 1 and type(arg[1]) == "table" then
 
+    local save = {}
     for _, data in ipairs(arg[1]) do
 
       local name = data[1]
       local value = data[2]
       self[name] = value
+      save[name] = value
 
     end
 
+    self:Save(save)
+
   elseif #arg == 2 then
 
+    local save = {}
     local name = arg[1]
     local value = arg[2]
     self[name] = value
+    save[name] = value
+
+    self:Save(save)
 
   end
 
@@ -85,7 +94,7 @@ function Player:Save(data)
   local count = 0
 
   for column, value in pairs(data) do
-    if column ~= "id" and column ~= "steamId" and column ~= "createdAt" and column ~= "id" then
+    if column ~= "id" and column ~= "steamId" and column ~= "createdAt" then
 
       if count ~= 0 then
         str_query = str_query .. ", "
@@ -105,7 +114,7 @@ function Player:Kick(reason)
 end
 
 --
--- Static
+-- Static Functions
 --
 
 -- Create instance of player

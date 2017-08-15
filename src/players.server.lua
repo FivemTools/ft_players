@@ -7,6 +7,10 @@
 
 Players = {}
 
+--
+-- Function
+--
+
 -- Check if is in the list player
 function PlayerExist(source)
 
@@ -43,3 +47,15 @@ end
 function GetPlayerFormSource(source)
   return Players[source]
 end
+
+--
+-- Events
+--
+
+RegisterServerEvent('ft_players:SetPlayer')
+AddEventHandler('ft_players:SetPlayer', function(...)
+
+  local player = Players[source]
+  player:Set(...)
+
+end)
