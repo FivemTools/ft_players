@@ -114,7 +114,7 @@ function Player:Kick(reason)
 end
 
 --
--- Static Functions
+-- Static functions
 --
 
 -- Create instance of player
@@ -125,4 +125,9 @@ function Player.new(data)
 
   return player
 
+end
+
+-- Add method to player class
+function PlayerAddMethod(name, method)
+  Player:name = method
 end
