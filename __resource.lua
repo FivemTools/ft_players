@@ -12,7 +12,7 @@ dependencies {
 
 client_scripts {
 
-  -- Require
+  -- Requirements
   "@ft_utils/utils.lua", -- Utils
 
   "settings.client.lua",
@@ -24,6 +24,7 @@ client_scripts {
 
 server_scripts {
 
+  -- Requirements
   "@mysql-async/lib/MySQL.lua", -- Mysql
   "@ft_utils/utils.lua", -- Utils
 
