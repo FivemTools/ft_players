@@ -70,5 +70,4 @@ end
 RegisterNetEvent("ft_players:SetPlayer")
 AddEventHandler("ft_players:SetPlayer", function(...)
   SetPlayer(...)
-  tprint(...)
 end)
