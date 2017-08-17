@@ -128,6 +128,9 @@ function Player.new(data)
 end
 
 -- Add method to player class
-function PlayerAddMethod(name, method)
-  Player:name = method
+function AddPlayerMethod(name, method)
+  Player.name = function(self, ...)
+    local self = self
+    method(...)
+  end
 end

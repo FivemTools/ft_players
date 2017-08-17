@@ -46,5 +46,5 @@ server_exports {
   "GetPlayers",
   "GetPlayerFormSteamId",
   "GetPlayerFormId",
-  "PlayerAddMethod",
+  "AddPlayerMethod",
 }
