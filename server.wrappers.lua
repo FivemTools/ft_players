@@ -18,5 +18,5 @@ function GetPlayerFormSteamId(steamId)
 end
 
 function AddPlayerMethod(name, method)
-  return exports.ft_players:PlayerAddMethod(name, method)
+  return exports.ft_players:AddPlayerMethod(name, method)
 end

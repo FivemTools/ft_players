@@ -129,8 +129,5 @@ end
 
 -- Add method to player class
 function AddPlayerMethod(name, method)
-  Player.name = function(self, ...)
-    local self = self
-    method(...)
-  end
+  Player[name] = method
 end
