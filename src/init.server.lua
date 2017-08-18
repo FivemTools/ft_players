@@ -39,8 +39,6 @@ AddEventHandler('ft_players:onClientReady', function()
     print("[player] data in database")
     tprint(player)
     print("-----------------------------")
-
-    print(player:GetCash())
   end
 
   -- Send to client
