@@ -20,9 +20,3 @@ Citizen.CreateThread(function()
 
   end
 end)
-
--- Debug
-RegisterNetEvent("ft_players:Debug")
-AddEventHandler("ft_players:Debug", function()
-  Settings.debug = true
-end)
