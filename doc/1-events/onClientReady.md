@@ -1,7 +1,11 @@
-#onClientReady
+# onClientReady
 
-##Description
+## Description
 
-##Export
+## Exemple
 
-##Wrappers
+```lua
+AddEventHandler('ft_players:onClientReady', function ()
+  ...
+end)
+```

@@ -1,7 +1,12 @@
-#GetPlayer
+# SetPlayer
+SetPlayer(attribut, value) -- Set specific attribut
+SetPlayer({ {attribut, value} , {...} }) -- Set specific attribut
 
-##Description
+## Description
 
-##Export
+## Exemples
 
-##Wrappers
+```lua
+SetPlayer("steamId", "steam:1100001xxxxxxxx") -- Set specific attribut
+SetPlayer({ {"steamId", "steam:1100001xxxxxxxx"} }) -- Set specific attribut
+```

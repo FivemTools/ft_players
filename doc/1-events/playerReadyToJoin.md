@@ -1,7 +1,11 @@
-#playerReadyToJoin
+# playerReadyToJoin
 
-##Description
+## Description
 
-##Export
+## Exemple
 
-##Wrappers
+```lua
+AddEventHandler('ft_players:onServerResourceStart', function ()
+  ...
+end)
+```

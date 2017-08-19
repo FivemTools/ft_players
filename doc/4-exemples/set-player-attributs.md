@@ -26,12 +26,12 @@ local players = GetPlayers()
 
 Get player form id
 ```lua
-local player = GetPlayerFormSource(1)
+local player = GetPlayerFromServerId(1)
 player:Set("steamId", "steam:1100001xxxxxxxx")
 ```
 
 Get player form steamId
 ```lua
-local player = GetPlayerFormSteamId("steam:1100001xxxxxxxx")
+local player = GetPlayerFromSteamId("steam:1100001xxxxxxxx")
 player:Set({ {"steamId", "steam:1100001xxxxxxxx"}, { "id", 3 } })
 ```

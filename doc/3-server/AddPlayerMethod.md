@@ -1,7 +1,12 @@
-#AddPlayerMethod
+# AddPlayerMethod
+AddPlayerMethod(name, function)
 
-##Description
+## Description
 
-##Export
+## Exemples
 
-##Wrappers
+```lua
+AddPlayerMethod("getSteamId", function(self)
+  return self.steamId
+end)
+```

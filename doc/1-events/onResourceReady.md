@@ -1,7 +1,11 @@
-#onResourceReady
+# onResourceReady
 
-##Description
+## Description
 
-##Export
+## Exemple
 
-##Wrappers
+```lua
+AddEventHandler('ft_players:onResourceReady', function ()
+  ...
+end)
+```

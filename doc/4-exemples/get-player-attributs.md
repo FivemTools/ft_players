@@ -24,14 +24,14 @@ Get all player in server
 local player = GetPlayers()
 ```
 
-Get player form source (server id) and get steamId
+Get player form serverId (source) and get steamId
 ```lua
-local player = GetPlayerFormSource(1)
+local player = GetPlayerFromServerId(1)
 local steamId = player.steamId
 ```
 
 Get player form steamId and get createdAt
 ```lua
-local player = GetPlayerFormSteamId("steam:1100001xxxxxxxx")
+local player = GetPlayerFromSteamId("steam:1100001xxxxxxxx")
 local createdAt = player.createdAt
 ```

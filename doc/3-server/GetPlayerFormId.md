@@ -1,7 +1,0 @@
-#GetPlayerFormId
-
-##Description
-
-##Export
-
-##Wrappers

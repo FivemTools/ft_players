@@ -38,14 +38,14 @@ function GetPlayers()
 end
 
 -- Get player by steamId
-function GetPlayerFormSteamId(steamId)
+function GetPlayerFromSteamId(steamId)
   local player = Player.new({ steamId = steamId })
   return player
 end
 
--- Get player by source
-function GetPlayerFormSource(source)
-  return Players[source]
+-- Get player by serverId (source)
+function GetPlayerFromServerId(serverId)
+  return Players[serverId]
 end
 
 --
@@ -73,6 +73,8 @@ AddEventHandler('ft_players:PlayerUpdated', function(data)
       change[name] = value
     end
   end
+
+  player:Set(change)
 
   tprint(change)
 

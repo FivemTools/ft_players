@@ -1,7 +1,10 @@
-#GetPlayers
+# GetPlayers
+GetPlayers()
 
-##Description
+## Description
 
-##Export
+## Exemples
 
-##Wrappers
+```lua
+GetPlayers()
+```

@@ -1,7 +1,0 @@
-#GetPlayerFormSteamId
-
-##Description
-
-##Export
-
-##Wrappers
