@@ -39,7 +39,7 @@ end
 
 -- Get player by steamId
 function GetPlayerFromSteamId(steamId)
-  local player = Player.new({ steamId = steamId })
+  local player = Player.New({ steamId = steamId })
   return player
 end
 

@@ -9,12 +9,12 @@ function GetPlayers()
   return exports.ft_players:GetPlayer()
 end
 
-function GetPlayerFormSource(source)
-  return exports.ft_players:GetPlayerFormSource(source)
+function GetPlayerFromServerId(source)
+  return exports.ft_players:GetPlayerFormServerId(source)
 end
 
-function GetPlayerFormSteamId(steamId)
-  return exports.ft_players:GetPlayerFormSteamId(steamId)
+function GetPlayerFromSteamId(steamId)
+  return exports.ft_players:GetPlayerFromSteamId(steamId)
 end
 
 function AddPlayerMethod(name, method)

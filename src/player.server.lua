@@ -118,7 +118,7 @@ end
 --
 
 -- Create instance of player
-function Player.new(data)
+function Player.New(data)
 
   local player = setmetatable(data, { __index = Player })
   player:Init()

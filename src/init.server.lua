@@ -28,7 +28,7 @@ AddEventHandler('ft_players:onClientReady', function()
 
   -- Add player in player table
   if not PlayerExist(serverId) then
-    player = Player.new({ steamId = steamId, source = source })
+    player = Player.New({ steamId = steamId, source = source })
     AddPlayer(source, player)
   else
     player = Players[source]
