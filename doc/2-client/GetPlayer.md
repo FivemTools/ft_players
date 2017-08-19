@@ -1,8 +1,11 @@
 # GetPlayer
+
 GetPlayer(attribut)
 GetPlayer({attribut})
 
 ## Description
+
+Function to get a player's attribute.
 
 ## Exemples
 

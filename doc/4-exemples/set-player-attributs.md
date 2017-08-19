@@ -2,7 +2,7 @@
 
 ## Client
 
-Get all attributs
+Get all the attributes of a player
 ```lua
 local player = GetPlayer()
 ```
@@ -19,18 +19,13 @@ local attributs = GetPlayer({ "steamId", "id" })
 
 ## Server
 
-Get all player in server
-```lua
-local players = GetPlayers()
-```
-
-Get player form id
+Get player from his id
 ```lua
 local player = GetPlayerFromServerId(1)
 player:Set("steamId", "steam:1100001xxxxxxxx")
 ```
 
-Get player form steamId
+Get player from his steamId
 ```lua
 local player = GetPlayerFromSteamId("steam:1100001xxxxxxxx")
 player:Set({ {"steamId", "steam:1100001xxxxxxxx"}, { "id", 3 } })

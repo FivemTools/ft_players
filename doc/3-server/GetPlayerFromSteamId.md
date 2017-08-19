@@ -1,7 +1,10 @@
 # GetPlayerFromSteamId
+
 GetPlayerFromSteamId(steamId)
 
 ## Description
+
+Function to get a player from his SteamID.
 
 ## Exemples
 

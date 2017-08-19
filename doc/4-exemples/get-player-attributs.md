@@ -2,35 +2,35 @@
 
 ## Client
 
-Get all attributs
+Get all the attributes of the player
 ```lua
 local player = GetPlayer()
 ```
 
-Get steamId only
+Get only the steamId
 ```lua
 local player = GetPlayer("steamId")
 ```
 
-Get steamId and id
+Get the steamId and the id of a player
 ```lua
 local player = GetPlayer({ "steamId", "id" })
 ```
 
 ## Server
 
-Get all player in server
+Get all the players online on the server
 ```lua
 local player = GetPlayers()
 ```
 
-Get player form serverId (source) and get steamId
+Get player from serverId (source) and get his steamId
 ```lua
 local player = GetPlayerFromServerId(1)
 local steamId = player.steamId
 ```
 
-Get player form steamId and get createdAt
+Get player from his steamId and get createdAt
 ```lua
 local player = GetPlayerFromSteamId("steam:1100001xxxxxxxx")
 local createdAt = player.createdAt
