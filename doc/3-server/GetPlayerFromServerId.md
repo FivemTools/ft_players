@@ -6,7 +6,7 @@ GetPlayerFromServerId(ServerId)
 
 Function to get a player by his ServerId (source)
 
-## Exemples
+## Exemple
 
 ```lua
 GetPlayerFromServerId(1)

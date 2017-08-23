@@ -5,7 +5,7 @@ GetPlayers()
 
 Function to get all the players.
 
-## Exemples
+## Exemple
 
 ```lua
 GetPlayers()

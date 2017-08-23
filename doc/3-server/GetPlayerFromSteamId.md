@@ -6,7 +6,7 @@ GetPlayerFromSteamId(steamId)
 
 Function to get a player from his SteamID.
 
-## Exemples
+## Exemple
 
 ```lua
 GetPlayerFromSteamId("steam:1100001xxxxxxxx")
