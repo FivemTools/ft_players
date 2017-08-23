@@ -9,13 +9,6 @@ For example, you can inject into player the function GetSteamId, and everytime y
 
 ```lua
 AddPlayerMethod('GetSteamId', function(self)
-	local steamId = self.steamId
-    return steamId
+  -- Your code
 end)
-```
-
-Meaning you'll be able to do everywhere else :
-```lua
-local player = GetPlayerFromServerId(1)
-player:GetSteamId()
 ```

@@ -4,12 +4,12 @@
 
 Set steamId only
 ```lua
-local steamId = SetPlayer("steamId", "steam:1100001xxxxxxxx")
+SetPlayer("steamId", "steam:1100001xxxxxxxx")
 ```
 
 Set steamId and id
 ```lua
-local attributs = SetPlayer({ {"steamId", "steam:1100001xxxxxxxx"}, { "id", 3 } })
+SetPlayer({ {"steamId", "steam:1100001xxxxxxxx"}, { "id", 3 } })
 ```
 
 ## Server
