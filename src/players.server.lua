@@ -6,6 +6,7 @@
 --
 
 Players = {}
+PlayerDrop = {}
 
 --
 -- Function
@@ -46,6 +47,10 @@ end
 -- Get player by serverId (source)
 function GetPlayerFromServerId(serverId)
   return Players[serverId]
+end
+
+function AddPlayerDrop(callback)
+  PlayerDrop.insert(callback)
 end
 
 --

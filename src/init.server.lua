@@ -53,12 +53,15 @@ end)
 -- Event before player leave
 AddEventHandler('playerDropped', function()
 
-  -- execute after player leave
-  for _,callback in pairs(playerLeave) do
-    -- Code
+  local source = source
+  local player = GetPlayerFromServerId(source)
+
+  -- Execute after player dropped
+  for _, callback in pairs(PlayerDrop) do
+    callback(player)
   end
 
-  local source = source
+  -- Remove in player list
   if PlayerExist(source) then
     RemovePlayer(source)
   end
