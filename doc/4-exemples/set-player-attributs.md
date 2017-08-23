@@ -2,19 +2,14 @@
 
 ## Client
 
-Get all the attributes of a player
+Set steamId only
 ```lua
-local player = GetPlayer()
+local steamId = SetPlayer("steamId", "steam:1100001xxxxxxxx")
 ```
 
-Get steamId only
+Set steamId and id
 ```lua
-local steamId = GetPlayer("steamId")
-```
-
-Get steamId and id
-```lua
-local attributs = GetPlayer({ "steamId", "id" })
+local attributs = SetPlayer({ {"steamId", "steam:1100001xxxxxxxx"}, { "id", 3 } })
 ```
 
 ## Server

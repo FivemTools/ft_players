@@ -17,5 +17,5 @@ end)
 Meaning you'll be able to do everywhere else :
 ```lua
 local player = GetPlayerFromServerId(1)
-player:steamId()
+player:GetSteamId()
 ```
