@@ -53,6 +53,11 @@ end)
 -- Event before player leave
 AddEventHandler('playerDropped', function()
 
+  -- execute after player leave
+  for _,callback in pairs(playerLeave) do
+    -- Code
+  end
+
   local source = source
   if PlayerExist(source) then
     RemovePlayer(source)
