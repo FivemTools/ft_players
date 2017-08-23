@@ -20,3 +20,7 @@ end
 function AddPlayerMethod(name, method)
   return exports.ft_players:AddPlayerMethod(name, method)
 end
+
+function AddPlayerDrop()
+  return exports.ft_players:AddPlayerDrop(callback)
+end
