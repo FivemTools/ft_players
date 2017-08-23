@@ -12,5 +12,5 @@ Function to get a player's attribute.
 ```lua
 GetPlayer() -- Get all
 GetPlayer("steamId") -- Get specific attribut
-GetPlayer({"steamId"}) -- Get specific attribut
+GetPlayer({"steamId", ...}) -- Get specific attribut
 ```
