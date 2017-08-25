@@ -17,7 +17,19 @@ Example:
 start ft_players
 ```
 
-Import database.sql file to database
+### Use wrappers
+
+Client:
+
+```
+"@ft_players/src/client.wrappers.lua",
+```
+
+Server:
+
+```
+"@ft_players/src/server.wrappers.lua",
+```
 
 ## Acknowledgments
 
