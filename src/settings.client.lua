@@ -6,5 +6,4 @@
 --
 
 Settings = {
-	debug = false,
 }
