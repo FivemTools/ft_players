@@ -57,7 +57,7 @@ function SetPlayer(...)
 
 end
 
--- Send to client
+-- Send to server
 function PlayerUpdated()
   TriggerServerEvent("ft_players:PlayerUpdated", Player)
 end
