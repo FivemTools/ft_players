@@ -10,7 +10,7 @@ AddEventHandler('onServerResourceStart', function (resource)
     if resource == "ft_players" then
 
         -- Convar
-        Settings.debug = GetConvar("ft_player_debug", Settings.debug) == "true" and true or false
+        Settings.debug = GetConvar("ft_player_debug", tostring(Settings.debug)) == "true" and true or false
 
         -- Send event
         TriggerEvent('ft_players:onResourceReady')
