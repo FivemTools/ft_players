@@ -9,5 +9,5 @@ Function to get a player from his SteamID.
 ## Exemple
 
 ```lua
-GetPlayerFromSteamId("steam:1100001xxxxxxxx")
+exports.ft_players:GetPlayerFromSteamId("steam:1100001xxxxxxxx")
 ```

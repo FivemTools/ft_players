@@ -9,12 +9,12 @@ Your ressource :
 AddEventHandler('ft_players:onResourceReady', function ()
 
   -- Get steamId
-  AddPlayerMethod('GetSteamId', function(self)
+  exports.ft_players:AddPlayerMethod('GetSteamId', function(self)
     return self.steamId
   end)
 
   -- Set steamId
-  AddPlayerMethod('SetSteamId', function(self, steamId)
+  exports.ft_players:AddPlayerMethod('SetSteamId', function(self, steamId)
     self:Set("steamId", steamId)
   end)
 
@@ -23,7 +23,7 @@ end)
 
 In Player:
 ```lua
-local player = GetPlayerFromServerId(4)
+local player = exports.ft_players:GetPlayerFromServerId(4)
 
 -- Set steamId
 player:SetSteamId("steam:1100001xxxxxxxx")

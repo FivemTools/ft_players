@@ -10,5 +10,5 @@ function GetPlayer(...)
 end
 
 function SetPlayer(...)
-  return exports.ft_players:GetPlayer(...)
+  return exports.ft_players:SetPlayer(...)
 end

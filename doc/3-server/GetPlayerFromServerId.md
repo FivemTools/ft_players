@@ -9,5 +9,5 @@ Function to get a player by his ServerId (source)
 ## Exemple
 
 ```lua
-GetPlayerFromServerId(1)
+exports.ft_players:GetPlayerFromServerId(1)
 ```

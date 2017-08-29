@@ -17,18 +17,18 @@ Example:
 start ft_players
 ```
 
-### Use wrappers
+### Wrappers exemples
 
 Client:
 
 ```
-"@ft_players/src/client.wrappers.lua",
+"wrappers/players.client.lua"
 ```
 
 Server:
 
 ```
-"@ft_players/src/server.wrappers.lua",
+"wrappers/players.server.lua"
 ```
 
 ## License

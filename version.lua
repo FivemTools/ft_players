@@ -5,4 +5,4 @@
 -- @Source: https://github.com/FivemTools/ft_players
 --
 
-Version = "0.1.1"
+Version = "0.2.0"

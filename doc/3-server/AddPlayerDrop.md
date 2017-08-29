@@ -8,7 +8,7 @@ AddPlayerDrop(function)
 ## Exemple
 
 ```lua
-AddPlayerDrop(function(self)
+exports.ft_players:AddPlayerDrop(function(self)
   -- Your code
 end)
 ```
