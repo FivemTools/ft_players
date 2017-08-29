@@ -8,5 +8,5 @@ Function to get all the players.
 ## Exemple
 
 ```lua
-GetPlayers()
+exports.ft_players:GetPlayers()
 ```

@@ -10,7 +10,7 @@ Function to get a player's attribute.
 ## Exemples
 
 ```lua
-GetPlayer() -- Get all
-GetPlayer("steamId") -- Get specific attribut
-GetPlayer({"steamId", ...}) -- Get specific attribut
+exports.ft_players:GetPlayer() -- Get all
+exports.ft_players:GetPlayer("steamId") -- Get specific attribut
+exports.ft_players:GetPlayer({"steamId", ...}) -- Get specific attribut
 ```

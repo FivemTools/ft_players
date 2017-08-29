@@ -9,7 +9,7 @@ This function will help to you avoid the exports or events. It injects a functio
 ## Exemple
 
 ```lua
-AddPlayerMethod('GetSteamId', function(self)
+exports.ft_players:AddPlayerMethod('GetSteamId', function(self)
   -- Your code
 end)
 ```
